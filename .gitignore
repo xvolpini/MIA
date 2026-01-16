@@ -1,0 +1,4 @@
+credenciales.json
+*.xlsx
+__pycache__/
+
