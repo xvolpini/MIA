@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import gspread
-from oauth2client.service_account import ServiceAccountCredentials
+from google.oauth2.service_account import Credentials
 from gspread_dataframe import get_as_dataframe, set_with_dataframe
 from datetime import date, timedelta
 
@@ -21,9 +21,14 @@ scope = [
     "https://www.googleapis.com/auth/drive"
 ]
 
-credenciales = ServiceAccountCredentials.from_json_keyfile_name(
-    "credenciales.json", scope
+import streamlit as st
+from google.oauth2.service_account import Credentials
+
+credenciales = Credentials.from_service_account_info(
+    st.secrets["gcp_service_account"],
+    scopes=scope
 )
+
 
 cliente = gspread.authorize(credenciales)
 
