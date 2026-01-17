@@ -21,8 +21,6 @@ scope = [
     "https://www.googleapis.com/auth/drive"
 ]
 
-import streamlit as st
-from google.oauth2.service_account import Credentials
 
 import streamlit as st
 from google.oauth2.service_account import Credentials
